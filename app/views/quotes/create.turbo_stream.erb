@@ -1,0 +1,4 @@
+<!--this is for adds new quote with id "quotes"-->
+<%= turbo_stream.prepend "quotes", partial: "quotes/quote", locals: { quote:@quote } %>
+<!--this is for updates or clear the DOM element with id Quote.new-->
+<%= turbo_stream.update Quote.new, "" %>
