@@ -6,4 +6,6 @@ class Quote < ApplicationRecord
   after_create_commit -> { broadcast_prepend_to "quotes", partial: "quotes/quote", locals: { quote: self }, target: "quotes" }
   # we can do shotcut above like this
   # after_create_commit -> { broadcast_prepend_to "quotes" }
+
+  after_update_commit -> { broadcast_replace_to "quotes" }
 end
